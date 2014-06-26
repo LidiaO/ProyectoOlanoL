@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package pe.upeu.edu.proyectooolanol.config;
+package pe.upeu.edu.proyectooolanol.modelo;
 
 /**
  *
  * @author alum.fial8
  */
-class connex {
+public class Usuario {
     
 }

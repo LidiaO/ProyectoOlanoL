@@ -6,28 +6,11 @@
 
 package pe.upeu.edu.proyectooolanol.config;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 /**
  *
  * @author alum.fial8
  */
 public class Conexion {
-    private static Connection connex = null;
-    private static String url="jdbc:mysql//localhost/bd_visitas";
-    private static String usuario="root";
-    private static String password="root";
     
-    public static Connection getConexion(){
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            if(connex == null){
-                connex = DriverManager.getConection(url, usuario, clave);
-            }else{
-                connex = null;
-            }
-        }
-    }
-        return null;
 }
