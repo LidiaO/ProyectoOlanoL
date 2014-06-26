@@ -8,6 +8,7 @@ package pe.upeu.edu.proyectooolanol.vista;
 
 import com.mysql.jdbc.Connection;
 import javax.swing.JOptionPane;
+import pe.upeu.edu.proyectooolanol.DAO.UsuarioDAO;
 import pe.upeu.edu.proyectooolanol.config.Conexion;
 
 /**
@@ -15,7 +16,8 @@ import pe.upeu.edu.proyectooolanol.config.Conexion;
  * @author alum.fial8
  */
 public class LoginForm extends javax.swing.JFrame {
-
+    UsuarioDAO aO = new UsuarioDAO();
+    int op;
     /**
      * Creates new form LoginForm
      */
@@ -92,11 +94,21 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-       Connection cx;
+       /*Connection cx;
        cx = Conexion.getConexion();
        if(cx != null){
            JOptionPane.showMessageDialog(null, "exito");
-       }
+       }*/
+        String user =  txtUsuario.getText();
+        String pass = txtClave.getText();
+        op = aO.validarUsuario(user, pass);
+        if(op == 1){
+            PrincipalForm pf = new PrincipalForm();
+            pf.setVisible(true);            
+                    
+        }else{
+            JOptionPane.showMessageDialog(null, "No se puede conectar");
+        }
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 
@@ -126,7 +138,7 @@ public class LoginForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
